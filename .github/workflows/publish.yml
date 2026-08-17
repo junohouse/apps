@@ -1,0 +1,57 @@
+# Check the catalog on every proposal, publish it when one lands.
+#
+# The check needs no credentials, which is the whole point: a pull request from anybody's fork
+# runs it and gets a green tick or a specific error, without this repository handing a stranger
+# a token. The deploy only ever runs on `main`, where the secrets are.
+name: publish
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 24
+
+      # The shape. A controller refuses a catalog it cannot parse and falls back to the copy
+      # baked into its own build — so a broken file here would not break a house, it would
+      # silently stop every house from ever seeing an update again. Worse for being invisible.
+      - name: Shape
+        run: |
+          npx --yes --package ajv-cli@5 -- \
+            ajv validate --spec=draft2020 -s schema/apps.schema.json -d apps.json
+
+      # And the thing a schema cannot check: no two apps claiming one spelling.
+      - name: Spellings
+        run: node tools/check.mjs
+
+  publish:
+    needs: check
+    if: github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      # Served as static files rather than through a Worker: this is one small JSON document
+      # read by every controller in the world a couple of times a day, and Pages already does
+      # exactly that. The schema goes up beside it so `$id` resolves for anybody validating a
+      # change locally.
+      - name: Lay out what gets served
+        run: |
+          mkdir -p site/schema
+          cp apps.json site/
+          cp schema/apps.schema.json site/schema/
+          cp README.md site/
+
+      - uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy site --project-name=juno-apps --branch=main

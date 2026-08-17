@@ -1,0 +1,71 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://apps.juno.house/schema/apps.schema.json",
+  "title": "Juno app catalog",
+  "description": "What a streaming service is called on every box that has it, and the string each platform needs to launch it. A controller reads this so a room can offer `Netflix` once instead of offering the Roku's Netflix and the Apple TV's Netflix as two different things, and so a driver can launch an app on a device that will not say what it has installed.",
+  "type": "object",
+  "required": [
+    "apps"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "$comment": {
+      "type": "string"
+    },
+    "platforms": {
+      "type": "object",
+      "description": "Documentation only: what a `launch` value means for each platform key, so somebody filling one in knows whether it wants a package name, a numeric id, or a display name. Not read by a controller — the value is opaque to core, and only the driver for that platform interprets it.",
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
+    "apps": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/app"
+      }
+    }
+  },
+  "$defs": {
+    "app": {
+      "type": "object",
+      "required": [
+        "slug",
+        "name",
+        "aliases"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "slug": {
+          "type": "string",
+          "description": "Stable id. Never change or reuse one — a project may have written it down.",
+          "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+        },
+        "name": {
+          "type": "string",
+          "description": "What a person is shown, and what a room is asked for. Matched as an alias automatically.",
+          "minLength": 1
+        },
+        "aliases": {
+          "type": "array",
+          "description": "The other spellings, matched case- and punctuation-insensitively: what each vendor's own app list calls it, and what somebody would say out loud. Only the ones that differ from `name` and `slug`. Matching is exact rather than fuzzy on purpose, so `Netflix Kids` stays its own app — a miss is fixed by adding a spelling here, which every house then gets, rather than by loosening a rule for everybody.",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "launch": {
+          "type": "object",
+          "description": "Per platform, the string that opens this app. Sparse: an absent platform means nobody has filled that one in, not that the app is unavailable there — and a device that lists its own apps needs none of this. Opaque to core, which only works out which platform a device is and hands the value to its driver.",
+          "propertyNames": {
+            "pattern": "^[a-z0-9_]+$"
+          },
+          "additionalProperties": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    }
+  }
+}

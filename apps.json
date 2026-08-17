@@ -1,0 +1,273 @@
+{
+  "$comment": "Hand-edited. One entry per service: the name a person is shown, every spelling a box reports it under, and the string each platform needs to launch it. Add a service or fill in a platform id and open a PR — controllers pick it up within a day, with no release. `name` and `slug` are matched as aliases automatically; `launch` is sparse, and an absent platform means nobody has filled that one in yet, not that the app is unavailable there.",
+  "platforms": {
+    "roku": "ECP channel id — `POST /launch/<id>`. Rarely needed: a Roku lists its own channels.",
+    "apple_tv": "Bundle id for `_launchApp`. A paired Apple TV reports the bundles it has; this covers the ones it does not.",
+    "android_tv": "Android package. Google TV, Shield, Sony, and most Android-based sets.",
+    "fire_tv": "Android package as Amazon ships it — often different from android_tv for the same service.",
+    "webos": "LG app id. LG re-issued several of these in 2024; where a set disagrees, its own list wins.",
+    "tizen": "What Samsung's remote API takes, which is a name rather than a numeric app id."
+  },
+  "apps": [
+    { "slug": "netflix", "name": "Netflix", "aliases": [],
+      "launch": { "roku": "12", "apple_tv": "com.netflix.Netflix", "android_tv": "com.netflix.ninja", "fire_tv": "com.netflix.ninja", "webos": "netflix", "tizen": "netflix" } },
+
+    { "slug": "prime-video", "name": "Prime Video", "aliases": ["amazon prime video", "amazon video", "amazon instant video", "amazon prime", "prime"],
+      "launch": { "roku": "13", "android_tv": "com.amazon.amazonvideo.livingroom", "fire_tv": "com.amazon.avod", "webos": "amazon", "tizen": "amazon" } },
+
+    { "slug": "disney-plus", "name": "Disney+", "aliases": [],
+      "launch": { "roku": "291097", "apple_tv": "com.disney.disneyplus", "android_tv": "com.disney.disneyplus", "fire_tv": "com.disney.disneyplus", "webos": "com.disney.disneyplus-prod", "tizen": "Disney+" } },
+
+    { "slug": "max", "name": "Max", "aliases": ["hbo max", "hbo now", "hbo go", "hbo"],
+      "launch": { "roku": "61322", "android_tv": "com.wbd.stream", "fire_tv": "com.hbo.hbonow", "webos": "com.wbd.stream", "tizen": "Max" } },
+
+    { "slug": "hulu", "name": "Hulu", "aliases": [],
+      "launch": { "roku": "2285", "apple_tv": "com.hulu.plus", "android_tv": "com.hulu.livingroomplus", "fire_tv": "com.hulu.plus", "webos": "hulu", "tizen": "hulu" } },
+
+    { "slug": "apple-tv-plus", "name": "Apple TV+", "aliases": [],
+      "launch": { "roku": "551012", "apple_tv": "com.apple.TVWatchList", "android_tv": "com.apple.atve.androidtv.appletv", "fire_tv": "com.apple.atve.amazon.appletv", "webos": "com.apple.appletv", "tizen": "Apple TV" } },
+
+    { "slug": "youtube", "name": "YouTube", "aliases": [],
+      "launch": { "roku": "837", "apple_tv": "com.google.ios.youtube", "android_tv": "com.google.android.youtube.tv", "fire_tv": "com.amazon.firetv.youtube", "webos": "youtube.leanback.v4", "tizen": "youTube" } },
+
+    { "slug": "youtube-tv", "name": "YouTube TV", "aliases": [],
+      "launch": { "roku": "195316", "android_tv": "com.google.android.youtube.tvunplugged", "fire_tv": "com.amazon.firetv.youtube.tv", "webos": "youtube.leanback.ytv.v1", "tizen": "YouTube TV" } },
+
+    { "slug": "youtube-music", "name": "YouTube Music", "aliases": [],
+      "launch": { "android_tv": "com.google.android.youtube.tvmusic", "tizen": "YouTube Music" } },
+
+    { "slug": "youtube-kids", "name": "YouTube Kids", "aliases": [],
+      "launch": { "android_tv": "com.google.android.youtube.tvkids", "webos": "youtube.leanback.kids.v4", "tizen": "YouTube Kids" } },
+
+    { "slug": "paramount-plus", "name": "Paramount+", "aliases": ["cbs all access"],
+      "launch": { "roku": "31440", "apple_tv": "com.cbsvideo.app", "android_tv": "com.cbs.ott", "fire_tv": "com.cbs.ott", "webos": "com.cbs-all-access.webapp.prod", "tizen": "Paramount+" } },
+
+    { "slug": "peacock", "name": "Peacock", "aliases": ["peacock tv"],
+      "launch": { "roku": "593099", "android_tv": "com.peacocktv.peacockandroid", "webos": "com.peacock.tv", "tizen": "Peacock TV" } },
+
+    { "slug": "spotify", "name": "Spotify", "aliases": ["spotify - music and podcasts"],
+      "launch": { "roku": "19977", "apple_tv": "com.spotify.client", "android_tv": "com.spotify.tv.android", "fire_tv": "com.spotify.tv.android", "webos": "spotify-beehive", "tizen": "Spotify - Music and Podcasts" } },
+
+    { "slug": "apple-music", "name": "Apple Music", "aliases": [],
+      "launch": { "roku": "637193", "webos": "com.apple.applemusic" } },
+
+    { "slug": "amazon-music", "name": "Amazon Music", "aliases": [],
+      "launch": { "roku": "14362", "android_tv": "com.amazon.music.tv", "fire_tv": "com.amazon.bueller.music", "webos": "com.theadelab.amclient-lg" } },
+
+    { "slug": "pandora", "name": "Pandora", "aliases": [],
+      "launch": { "roku": "28", "android_tv": "com.pandora.android.atv", "fire_tv": "com.pandora.android.gtv", "webos": "pandora.lgerp.app", "tizen": "pandora" } },
+
+    { "slug": "tidal", "name": "Tidal", "aliases": [],
+      "launch": { "roku": "294792", "android_tv": "com.aspiro.tidal", "fire_tv": "com.aspiro.tidal", "webos": "com.tidal.tv" } },
+
+    { "slug": "deezer", "name": "Deezer", "aliases": [],
+      "launch": { "android_tv": "deezer.android.tv", "fire_tv": "deezer.android.tv", "tizen": "deezer" } },
+
+    { "slug": "iheartradio", "name": "iHeartRadio", "aliases": ["iheart"],
+      "launch": { "roku": "20197", "android_tv": "com.clearchannel.iheartradio.tv", "fire_tv": "com.clearchannel.iheartradio.tv" } },
+
+    { "slug": "tunein", "name": "TuneIn", "aliases": ["tunein radio"],
+      "launch": { "roku": "1453", "android_tv": "tunein.player", "fire_tv": "tunein.player", "tizen": "TuneIn Radio" } },
+
+    { "slug": "siriusxm", "name": "SiriusXM", "aliases": ["sirius"],
+      "launch": { "roku": "38345", "android_tv": "tv.accedo.siriusxm.app", "webos": "sir.12465.3738" } },
+
+    { "slug": "plex", "name": "Plex", "aliases": ["plex - free movies ＆ tv"],
+      "launch": { "roku": "13535", "android_tv": "com.plexapp.android", "fire_tv": "com.plexapp.android", "webos": "cdp-30", "tizen": "Plex" } },
+
+    { "slug": "jellyfin", "name": "Jellyfin", "aliases": [],
+      "launch": { "roku": "592369", "android_tv": "org.jellyfin.androidtv", "fire_tv": "org.jellyfin.androidtv", "webos": "org.jellyfin.webos" } },
+
+    { "slug": "kodi", "name": "Kodi", "aliases": [],
+      "launch": { "android_tv": "org.xbmc.kodi", "fire_tv": "org.xbmc.kodi", "tizen": "Kodi" } },
+
+    { "slug": "emby", "name": "Emby", "aliases": [],
+      "launch": { "roku": "44191", "android_tv": "tv.emby.embyatv", "fire_tv": "tv.emby.embyatv", "webos": "com.emby.app", "tizen": "Emby" } },
+
+    { "slug": "sling", "name": "Sling TV", "aliases": [],
+      "launch": { "roku": "46041", "android_tv": "com.sling", "fire_tv": "com.sling", "webos": "com.movenetworks.app.sling-tv-sling-production", "tizen": "Sling TV" } },
+
+    { "slug": "fubo", "name": "Fubo", "aliases": ["fubotv"],
+      "launch": { "roku": "43465", "android_tv": "com.fubo.firetv.screen", "fire_tv": "com.fubo.firetv.screen", "webos": "com.fubotv.app", "tizen": "Fubo" } },
+
+    { "slug": "philo", "name": "Philo", "aliases": [],
+      "launch": { "roku": "196460", "android_tv": "com.philo.philo.google", "fire_tv": "com.philo.philo" } },
+
+    { "slug": "directv-stream", "name": "DIRECTV STREAM", "aliases": ["directv", "directv now", "at&t tv"],
+      "launch": { "roku": "140474", "android_tv": "com.att.tv", "fire_tv": "com.att.tv", "tizen": "DIRECTV STREAM" } },
+
+    { "slug": "xfinity-stream", "name": "Xfinity Stream", "aliases": ["xfinity"],
+      "launch": { "roku": "123132", "webos": "com.comcast.app", "tizen": "Xfinity Stream" } },
+
+    { "slug": "spectrum-tv", "name": "Spectrum TV", "aliases": ["spectrum"],
+      "launch": { "roku": "23048", "tizen": "Spectrum TV" } },
+
+    { "slug": "tubi", "name": "Tubi", "aliases": ["tubi tv", "tubi - free movies ＆ tv"],
+      "launch": { "roku": "41468", "android_tv": "com.tubitv", "fire_tv": "com.tubitv.ott", "webos": "com.tubitv.ott.tubi" } },
+
+    { "slug": "pluto-tv", "name": "Pluto TV", "aliases": ["pluto"],
+      "launch": { "roku": "74519", "apple_tv": "tv.pluto.ios", "android_tv": "tv.pluto.android", "fire_tv": "tv.pluto.android", "webos": "com.plutotv.app", "tizen": "Pluto TV" } },
+
+    { "slug": "roku-channel", "name": "The Roku Channel", "aliases": [],
+      "launch": { "roku": "151908" } },
+
+    { "slug": "freevee", "name": "Amazon Freevee", "aliases": ["imdb tv"],
+      "launch": { "roku": "615685", "android_tv": "com.imdbtv.livingroom", "fire_tv": "com.imdb.livingroom.firetv", "webos": "imdbtv" } },
+
+    { "slug": "crackle", "name": "Crackle", "aliases": ["sony crackle"],
+      "launch": { "roku": "2016", "android_tv": "com.crackle.androidtv", "fire_tv": "com.gotv.crackle.handset", "webos": "crackle", "tizen": "Crackle" } },
+
+    { "slug": "crunchyroll", "name": "Crunchyroll", "aliases": [],
+      "launch": { "roku": "2595", "android_tv": "com.crunchyroll.crunchyroid", "fire_tv": "com.crunchyroll.crunchyroid", "webos": "com.crunchyroll.webapp", "tizen": "Crunchyroll" } },
+
+    { "slug": "twitch", "name": "Twitch", "aliases": [],
+      "launch": { "android_tv": "tv.twitch.android.app", "fire_tv": "tv.twitch.android.viewer", "webos": "tv.twitch.tv.starshot.lg", "tizen": "Twitch" } },
+
+    { "slug": "vimeo", "name": "Vimeo", "aliases": [],
+      "launch": { "roku": "1980", "android_tv": "com.vimeo.android.videoapp", "fire_tv": "com.vimeo.android.tv", "tizen": "Vimeo" } },
+
+    { "slug": "espn", "name": "ESPN", "aliases": ["watchespn", "espn plus"],
+      "launch": { "roku": "34376", "android_tv": "com.espn.score_center", "fire_tv": "com.espn.gtv", "tizen": "ESPN" } },
+
+    { "slug": "nfl", "name": "NFL", "aliases": ["nfl plus"],
+      "launch": { "roku": "44856", "android_tv": "com.gotv.nflgamecenter.us.lite", "fire_tv": "com.gotv.nflgamecenter.us.lite", "webos": "com.nfl.app" } },
+
+    { "slug": "nba", "name": "NBA", "aliases": ["nba league pass"],
+      "launch": { "roku": "73249", "android_tv": "com.nbadigital.gatv", "fire_tv": "com.nbadigital.jumbo" } },
+
+    { "slug": "mlb", "name": "MLB", "aliases": ["mlb tv", "mlb at bat"],
+      "launch": { "roku": "14", "android_tv": "com.bamnetworks.mobile.android.gameday.atbat", "fire_tv": "com.bamnetworks.mobile.android.gameday.atbat", "webos": "com.mlbtv.app", "tizen": "MLB" } },
+
+    { "slug": "nhl", "name": "NHL", "aliases": [],
+      "launch": { "roku": "2531", "android_tv": "com.nhl.gc1112.free", "fire_tv": "com.nhl.gc1112.free" } },
+
+    { "slug": "dazn", "name": "DAZN", "aliases": [],
+      "launch": { "roku": "158987", "android_tv": "com.dazn", "fire_tv": "com.dazn", "webos": "dazn", "tizen": "DAZN" } },
+
+    { "slug": "discovery-plus", "name": "Discovery+", "aliases": [],
+      "launch": { "roku": "593290", "android_tv": "com.discovery.discoveryplus.androidtv", "fire_tv": "com.discovery.discoveryplus.firetv", "webos": "com.discovery.dplus", "tizen": "discovery+" } },
+
+    { "slug": "amc-plus", "name": "AMC+", "aliases": [],
+      "launch": { "roku": "636527", "android_tv": "com.amcplus.amcandroidtv", "fire_tv": "com.amcplus.amcfiretv", "webos": "com.amcplus1.app" } },
+
+    { "slug": "starz", "name": "Starz", "aliases": [],
+      "launch": { "roku": "65067", "android_tv": "com.bydeluxe.d3.android.program.starz", "fire_tv": "com.starz.starzplay.firetv", "webos": "com.starz.app.starz-lgtv", "tizen": "STARZ" } },
+
+    { "slug": "showtime", "name": "Showtime", "aliases": [],
+      "launch": { "roku": "8838", "android_tv": "com.showtime.standalone", "fire_tv": "com.showtime.standalone", "tizen": "SHOWTIME" } },
+
+    { "slug": "britbox", "name": "BritBox", "aliases": [],
+      "launch": { "roku": "143088", "android_tv": "com.britbox.tv", "webos": "britbox", "tizen": "BritBox" } },
+
+    { "slug": "mubi", "name": "MUBI", "aliases": [],
+      "launch": { "android_tv": "com.mubi", "fire_tv": "com.mubi", "webos": "com.mubi" } },
+
+    { "slug": "criterion", "name": "The Criterion Channel", "aliases": ["criterion channel"],
+      "launch": { "roku": "276871", "android_tv": "com.criterionchannel", "fire_tv": "com.criterionchannel" } },
+
+    { "slug": "fandango-at-home", "name": "Fandango at Home", "aliases": ["vudu", "fandango at home - vudu"],
+      "launch": { "roku": "13842", "android_tv": "air.com.vudu.air.DownloaderTablet", "webos": "vudu", "tizen": "Fandango at Home - Vudu" } },
+
+    { "slug": "google-tv", "name": "Google TV", "aliases": ["google play movies", "play movies & tv"],
+      "launch": { "roku": "50025", "android_tv": "com.google.android.videos", "webos": "googleplaymovieswebos" } },
+
+    { "slug": "bbc-iplayer", "name": "BBC iPlayer", "aliases": ["iplayer", "bbc"],
+      "launch": { "roku": "11703", "android_tv": "com.nvidia.bbciplayer", "fire_tv": "uk.co.bbc.iplayer", "webos": "bbc.iplayer.3.0", "tizen": "BBC iPlayer" } },
+
+    { "slug": "itvx", "name": "ITVX", "aliases": ["itv hub", "itv player", "itv"],
+      "launch": { "roku": "42329", "android_tv": "air.ITVMobilePlayer", "fire_tv": "air.ITVMobilePlayer", "webos": "com.fvp.itv" } },
+
+    { "slug": "channel-4", "name": "Channel 4", "aliases": ["all 4", "4od"],
+      "launch": { "roku": "34785", "android_tv": "com.channel4.ondemand", "fire_tv": "com.channel4.ondemand", "webos": "com.fvp.ch4", "tizen": "Channel 4" } },
+
+    { "slug": "my5", "name": "My5", "aliases": ["channel 5", "demand 5"],
+      "launch": { "roku": "27424", "android_tv": "com.channel5.my5", "fire_tv": "com.mobileiq.demand5", "webos": "demand5", "tizen": "My5" } },
+
+    { "slug": "now", "name": "NOW", "aliases": ["now tv"],
+      "launch": { "roku": "20242" } },
+
+    { "slug": "crave", "name": "Crave", "aliases": ["crave tv"],
+      "launch": { "roku": "278425", "android_tv": "ca.bellmedia.cravetv", "fire_tv": "ca.bellmedia.cravetv", "webos": "ca.bellmedia.crave", "tizen": "Crave" } },
+
+    { "slug": "cbc-gem", "name": "CBC Gem", "aliases": ["cbc"],
+      "launch": { "roku": "614780", "android_tv": "ca.cbc.android.cbctv", "tizen": "CBC Gem" } },
+
+    { "slug": "tsn", "name": "TSN", "aliases": [],
+      "launch": { "roku": "675097", "android_tv": "ca.tsn.mobile.android", "tizen": "TSN" } },
+
+    { "slug": "stan", "name": "Stan", "aliases": [],
+      "launch": { "roku": "71361", "android_tv": "au.com.stan.and", "webos": "stan.webos2", "tizen": "Stan." } },
+
+    { "slug": "binge", "name": "BINGE", "aliases": [],
+      "launch": { "roku": "587447", "android_tv": "au.com.streamotion.ares.tv", "tizen": "BINGE" } },
+
+    { "slug": "kayo", "name": "Kayo Sports", "aliases": [],
+      "launch": { "roku": "262035", "android_tv": "au.com.kayosports.tv", "tizen": "Kayo Sports" } },
+
+    { "slug": "abc-iview", "name": "ABC iview", "aliases": ["iview"],
+      "launch": { "roku": "73305", "android_tv": "au.net.abc.iview", "webos": "abc", "tizen": "ABC iview" } },
+
+    { "slug": "tenplay", "name": "10 play", "aliases": [],
+      "launch": { "roku": "74349", "android_tv": "au.com.tenplay", "tizen": "10 play" } },
+
+    { "slug": "sbs-on-demand", "name": "SBS On Demand", "aliases": [],
+      "launch": { "roku": "65507", "android_tv": "com.sbs.ondemand.tv", "webos": "sbs", "tizen": "SBS On Demand" } },
+
+    { "slug": "9now", "name": "9Now", "aliases": [],
+      "launch": { "roku": "65575", "android_tv": "au.com.ninenow.ctv", "webos": "com.accedo.mi9.prod", "tizen": "9Now" } },
+
+    { "slug": "7plus", "name": "7plus", "aliases": [],
+      "launch": { "roku": "65509", "android_tv": "com.swm.live", "webos": "com.swm.7plus", "tizen": "7plus" } },
+
+    { "slug": "hotstar", "name": "Hotstar", "aliases": ["disney+ hotstar"],
+      "launch": { "roku": "166137", "android_tv": "in.startv.hotstartvonly", "fire_tv": "in.startv.hotstar", "webos": "hotstar", "tizen": "Hotstar" } },
+
+    { "slug": "viaplay", "name": "Viaplay", "aliases": [],
+      "launch": { "android_tv": "com.viaplay.android", "webos": "viaplay-lg", "tizen": "Viaplay" } },
+
+    { "slug": "svt-play", "name": "SVT Play", "aliases": [],
+      "launch": { "android_tv": "se.svt.android.svtplay", "webos": "se.svt.play.hbbtv.lg", "tizen": "SVT Play" } },
+
+    { "slug": "molotov", "name": "Molotov", "aliases": [],
+      "launch": { "android_tv": "tv.molotov.app", "webos": "com.molotov.weboslg", "tizen": "Molotov" } },
+
+    { "slug": "canal-plus", "name": "CANAL+", "aliases": ["mycanal"],
+      "launch": { "android_tv": "com.canal.android.canal", "fire_tv": "com.canal.android.canal", "webos": "canalplus", "tizen": "CANAL+" } },
+
+    { "slug": "zattoo", "name": "Zattoo", "aliases": ["zattoo tv", "zattoo - tv streaming app"],
+      "launch": { "webos": "zattoo-at", "tizen": "Zattoo - TV Streaming App" } },
+
+    { "slug": "npo", "name": "NPO", "aliases": [],
+      "launch": { "android_tv": "nl.uitzendinggemist", "webos": "npo", "tizen": "NPO" } },
+
+    { "slug": "videoland", "name": "Videoland", "aliases": [],
+      "launch": { "android_tv": "nl.rtl.videoland.v2", "webos": "videoland2021", "tizen": "Videoland" } },
+
+    { "slug": "vrt-max", "name": "VRT MAX", "aliases": [],
+      "launch": { "android_tv": "be.vrt.vrtnu", "tizen": "VRT MAX" } },
+
+    { "slug": "tvnz-plus", "name": "TVNZ+", "aliases": [],
+      "launch": { "android_tv": "nz.co.tvnz.ondemand.tv", "webos": "nz.co.tvnz.xdk.prod", "tizen": "TVNZ+" } },
+
+    { "slug": "neon", "name": "Neon", "aliases": [],
+      "launch": { "android_tv": "nz.co.lightbox.androidtv", "webos": "tv.accedo.lightbox.sydney.20150521", "tizen": "Neon" } },
+
+    { "slug": "globoplay", "name": "Globoplay", "aliases": [],
+      "launch": { "roku": "564736", "android_tv": "com.globo.globotv", "tizen": "globoplay" } },
+
+    { "slug": "movistar-plus", "name": "Movistar+", "aliases": [],
+      "launch": { "android_tv": "com.movistarplus.androidtv", "webos": "com.telefonica.app.nux" } },
+
+    { "slug": "shahid", "name": "Shahid", "aliases": [],
+      "launch": { "android_tv": "net.mbc.shahidTV", "webos": "net.mbc.shahidTV" } },
+
+    { "slug": "airplay", "name": "AirPlay", "aliases": ["airplay 2"],
+      "launch": { "webos": "airplay" } },
+
+    { "slug": "screen-mirroring", "name": "Screen Mirroring", "aliases": ["screen mirror", "miracast"],
+      "launch": { "roku": "43735", "webos": "com.webos.app.miracast", "tizen": "Screen mirroring" } },
+
+    { "slug": "media-player", "name": "Media Player", "aliases": ["usb"],
+      "launch": { "roku": "2213", "webos": "com.webos.app.mediadiscovery", "tizen": "Media Player" } }
+  ]
+}
