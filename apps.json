@@ -269,27 +269,6 @@
       "launch": { "roku": "43735", "webos": "com.webos.app.miracast", "tizen": "Screen mirroring" } },
 
     { "slug": "media-player", "name": "Media Player", "aliases": ["usb"],
-      "launch": { "roku": "2213", "webos": "com.webos.app.mediadiscovery", "tizen": "Media Player" } },
-
-    { "slug": "pbs", "name": "PBS", "aliases": ["pbs video"],
-      "launch": { "vizio": "{\"NAME_SPACE\":2,\"APP_ID\":\"129\",\"MESSAGE\":null}" } },
-    { "slug": "cnn", "name": "CNN", "aliases": [],
-      "launch": { "vizio": "{\"NAME_SPACE\":2,\"APP_ID\":\"604\",\"MESSAGE\":null}" } },
-    { "slug": "fox-news", "name": "Fox News", "aliases": ["fox news channel"],
-      "launch": { "vizio": "{\"NAME_SPACE\":2,\"APP_ID\":\"293\",\"MESSAGE\":null}" } },
-    { "slug": "nbc-news", "name": "NBC News", "aliases": ["nbc news now"],
-      "launch": { "vizio": "{\"NAME_SPACE\":2,\"APP_ID\":\"403\",\"MESSAGE\":null}" } },
-    { "slug": "cbs-news", "name": "CBS News", "aliases": [],
-      "launch": { "vizio": "{\"NAME_SPACE\":2,\"APP_ID\":\"432\",\"MESSAGE\":null}" } },
-    { "slug": "bloomberg", "name": "Bloomberg", "aliases": ["bloomberg tv"],
-      "launch": { "vizio": "{\"NAME_SPACE\":2,\"APP_ID\":\"294\",\"MESSAGE\":null}" } },
-    { "slug": "curiosity-stream", "name": "Curiosity Stream", "aliases": ["curiositystream"],
-      "launch": { "vizio": "{\"NAME_SPACE\":2,\"APP_ID\":\"12\",\"MESSAGE\":null}" } },
-    { "slug": "local-now", "name": "Local Now", "aliases": [],
-      "launch": { "vizio": "{\"NAME_SPACE\":2,\"APP_ID\":\"79\",\"MESSAGE\":null}" } },
-    { "slug": "filmrise", "name": "FilmRise", "aliases": [],
-      "launch": { "vizio": "{\"NAME_SPACE\":2,\"APP_ID\":\"24\",\"MESSAGE\":null}" } },
-    { "slug": "dove-channel", "name": "Dove Channel", "aliases": ["dove"],
-      "launch": { "vizio": "{\"NAME_SPACE\":2,\"APP_ID\":\"341\",\"MESSAGE\":null}" } }
+      "launch": { "roku": "2213", "webos": "com.webos.app.mediadiscovery", "tizen": "Media Player" } }
   ]
 }
