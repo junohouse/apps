@@ -77,6 +77,12 @@ two apps may claim the same spelling. Matching takes the first claim, so a dupli
 second app silently never resolves — its tile draws, its name is accepted, and launching it opens
 something else, on every controller, with nothing logged anywhere.
 
+Artwork is not filled in by hand for the boxes that need it. `node tools/icons.mjs` re-reads
+VIZIO's published app list and re-points every `icon` it covers; `--dry-run` says what it would
+change and writes nothing. Run it when a service rebrands, or when a tile stops loading. It is
+deliberately not part of CI — a link that moved is not a broken pull request, and a check that
+failed every time somebody else re-issued a logo would be turned off within a month.
+
 Ids are best taken off a device you actually have. `curl http://<roku>:8060/query/apps` prints a
 Roku's channels with their ids; `adb shell pm list packages` does the same for an Android-based
 box.
