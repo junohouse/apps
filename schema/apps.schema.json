@@ -54,6 +54,11 @@
             "minLength": 1
           }
         },
+        "icon": {
+          "type": "string",
+          "pattern": "^https://",
+          "description": "Artwork for this service, as a URL to the brand's own published icon — nothing is redistributed from this repository, and a controller fetches it and hands it on so a phone that is not on the house network still sees it. Only needed for a *platform* that cannot list what it has installed: a Roku or an Apple TV reports its own channels with its own artwork, and that always wins. In practice that means a SmartCast set, so most of these come from VIZIO's own app image API, joined to `vizio_apps_prod.json` by `id`. Sparse — an absent icon draws the service's initials, which is honest and is what every regional broadcaster here gets until somebody adds one."
+        },
         "launch": {
           "type": "object",
           "description": "Per platform, the string that opens this app. Sparse: an absent platform means nobody has filled that one in, not that the app is unavailable there — and a device that lists its own apps needs none of this. Opaque to core, which only works out which platform a device is and hands the value to its driver.",

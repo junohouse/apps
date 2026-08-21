@@ -58,3 +58,4 @@ for (const app of apps)
 console.log(`${apps.length} apps, ${claimed.size} spellings`);
 for (const [p, n] of [...platforms].sort((a, b) => b[1] - a[1]))
   console.log(`  ${p}: ${n} filled in`);
+console.log(`  icon: ${apps.filter((a) => a.icon).length} filled in`);

@@ -1,5 +1,5 @@
 {
-  "$comment": "Hand-edited. One entry per service: the name a person is shown, every spelling a box reports it under, and the string each platform needs to launch it. Add a service or fill in a platform id and open a PR — controllers pick it up within a day, with no release. `name` and `slug` are matched as aliases automatically; `launch` is sparse, and an absent platform means nobody has filled that one in yet, not that the app is unavailable there.",
+  "$comment": "Hand-edited. One entry per service: the name a person is shown, every spelling a box reports it under, and the string each platform needs to launch it. Add a service or fill in a platform id and open a PR — controllers pick it up within a day, with no release. `name` and `slug` are matched as aliases automatically; `launch` is sparse, and an absent platform means nobody has filled that one in yet, not that the app is unavailable there. `icon` is a link to the brand's own published artwork, never a copy of it — this repository redistributes no logos — and is only consulted for a platform that cannot list what it has installed, since a box that lists its own apps reports its own artwork with them. Today that means SmartCast, so most of them come from `mobileAppInfo.app_icon_image_url` in scfs.vizio.com/appservice/vizio_apps_prod.json.",
   "platforms": {
     "roku": "ECP channel id — `POST /launch/<id>`. Rarely needed: a Roku lists its own channels.",
     "apple_tv": "Bundle id for `_launchApp`. A paired Apple TV reports the bundles it has; this covers the ones it does not.",
@@ -11,27 +11,35 @@
   },
   "apps": [
     { "slug": "netflix", "name": "Netflix", "aliases": [],
+      "icon": "https://image-api-prod.smartcasttv.com/api/brandimage/500000018/app-row-square?from=csapp",
       "launch": { "roku": "12", "apple_tv": "com.netflix.Netflix", "android_tv": "com.netflix.ninja", "fire_tv": "com.netflix.ninja", "webos": "netflix", "tizen": "netflix", "vizio": "{\"NAME_SPACE\":3,\"APP_ID\":\"1\",\"MESSAGE\":null}" } },
 
     { "slug": "prime-video", "name": "Prime Video", "aliases": ["amazon prime video", "amazon video", "amazon instant video", "amazon prime", "prime"],
+      "icon": "https://image-api-prod.smartcasttv.com/api/brandimage/900000086/app-row-square?from=csapp",
       "launch": { "roku": "13", "android_tv": "com.amazon.amazonvideo.livingroom", "fire_tv": "com.amazon.avod", "webos": "amazon", "tizen": "amazon", "vizio": "{\"NAME_SPACE\":2,\"APP_ID\":\"4\",\"MESSAGE\":null}" } },
 
     { "slug": "disney-plus", "name": "Disney+", "aliases": [],
+      "icon": "https://image-api-prod.smartcasttv.com/api/brandimage/900000043/app-row-square?from=csapp",
       "launch": { "roku": "291097", "apple_tv": "com.disney.disneyplus", "android_tv": "com.disney.disneyplus", "fire_tv": "com.disney.disneyplus", "webos": "com.disney.disneyplus-prod", "tizen": "Disney+", "vizio": "{\"NAME_SPACE\":2,\"APP_ID\":\"75\",\"MESSAGE\":null}" } },
 
     { "slug": "max", "name": "Max", "aliases": ["hbo max", "hbo now", "hbo go", "hbo"],
+      "icon": "https://image-api-prod.smartcasttv.com/api/brandimage/900000299/app-row-square?from=csapp",
       "launch": { "roku": "61322", "android_tv": "com.wbd.stream", "fire_tv": "com.hbo.hbonow", "webos": "com.wbd.stream", "tizen": "Max", "vizio": "{\"NAME_SPACE\":2,\"APP_ID\":\"128\",\"MESSAGE\":null}" } },
 
     { "slug": "hulu", "name": "Hulu", "aliases": [],
+      "icon": "https://image-api-prod.smartcasttv.com/api/brandimage/500000015/app-row-square?from=csapp",
       "launch": { "roku": "2285", "apple_tv": "com.hulu.plus", "android_tv": "com.hulu.livingroomplus", "fire_tv": "com.hulu.plus", "webos": "hulu", "tizen": "hulu", "vizio": "{\"NAME_SPACE\":2,\"APP_ID\":\"3\",\"MESSAGE\":null}" } },
 
     { "slug": "apple-tv-plus", "name": "Apple TV+", "aliases": [],
+      "icon": "https://image-api-prod.smartcasttv.com/api/brandimage/900000049/app-row-square?from=csapp",
       "launch": { "roku": "551012", "apple_tv": "com.apple.TVWatchList", "android_tv": "com.apple.atve.androidtv.appletv", "fire_tv": "com.apple.atve.amazon.appletv", "webos": "com.apple.appletv", "tizen": "Apple TV", "vizio": "{\"NAME_SPACE\":3,\"APP_ID\":\"4\",\"MESSAGE\":null}" } },
 
     { "slug": "youtube", "name": "YouTube", "aliases": [],
+      "icon": "https://image-api-prod.smartcasttv.com/api/brandimage/500000006/app-row-square?from=csapp",
       "launch": { "roku": "837", "apple_tv": "com.google.ios.youtube", "android_tv": "com.google.android.youtube.tv", "fire_tv": "com.amazon.firetv.youtube", "webos": "youtube.leanback.v4", "tizen": "youTube", "vizio": "{\"NAME_SPACE\":5,\"APP_ID\":\"1\",\"MESSAGE\":null}" } },
 
     { "slug": "youtube-tv", "name": "YouTube TV", "aliases": [],
+      "icon": "https://image-api-prod.smartcasttv.com/api/brandimage/900000019/app-row-square?from=csapp",
       "launch": { "roku": "195316", "android_tv": "com.google.android.youtube.tvunplugged", "fire_tv": "com.amazon.firetv.youtube.tv", "webos": "youtube.leanback.ytv.v1", "tizen": "YouTube TV", "vizio": "{\"NAME_SPACE\":5,\"APP_ID\":\"3\",\"MESSAGE\":null}" } },
 
     { "slug": "youtube-music", "name": "YouTube Music", "aliases": [],
@@ -41,9 +49,11 @@
       "launch": { "android_tv": "com.google.android.youtube.tvkids", "webos": "youtube.leanback.kids.v4", "tizen": "YouTube Kids" } },
 
     { "slug": "paramount-plus", "name": "Paramount+", "aliases": ["cbs all access"],
+      "icon": "https://image-api-prod.smartcasttv.com/api/brandimage/500000049/app-row-square?from=csapp",
       "launch": { "roku": "31440", "apple_tv": "com.cbsvideo.app", "android_tv": "com.cbs.ott", "fire_tv": "com.cbs.ott", "webos": "com.cbs-all-access.webapp.prod", "tizen": "Paramount+", "vizio": "{\"NAME_SPACE\":2,\"APP_ID\":\"37\",\"MESSAGE\":null}" } },
 
     { "slug": "peacock", "name": "Peacock", "aliases": ["peacock tv"],
+      "icon": "https://image-api-prod.smartcasttv.com/api/brandimage/900000062/app-row-square?from=csapp",
       "launch": { "roku": "593099", "android_tv": "com.peacocktv.peacockandroid", "webos": "com.peacock.tv", "tizen": "Peacock TV", "vizio": "{\"NAME_SPACE\":2,\"APP_ID\":\"88\",\"MESSAGE\":null}" } },
 
     { "slug": "spotify", "name": "Spotify", "aliases": ["spotify - music and podcasts"],
@@ -53,9 +63,11 @@
       "launch": { "roku": "637193", "webos": "com.apple.applemusic" } },
 
     { "slug": "amazon-music", "name": "Amazon Music", "aliases": [],
+      "icon": "https://image-api-prod.smartcasttv.com/api/brandimage/900000184/app-row-square?from=csapp",
       "launch": { "roku": "14362", "android_tv": "com.amazon.music.tv", "fire_tv": "com.amazon.bueller.music", "webos": "com.theadelab.amclient-lg", "vizio": "{\"NAME_SPACE\":2,\"APP_ID\":\"156\",\"MESSAGE\":null}" } },
 
     { "slug": "pandora", "name": "Pandora", "aliases": [],
+      "icon": "https://image-api-prod.smartcasttv.com/api/brandimage/900000041/app-row-square?from=csapp",
       "launch": { "roku": "28", "android_tv": "com.pandora.android.atv", "fire_tv": "com.pandora.android.gtv", "webos": "pandora.lgerp.app", "tizen": "pandora", "vizio": "{\"NAME_SPACE\":2,\"APP_ID\":\"58\",\"MESSAGE\":null}" } },
 
     { "slug": "tidal", "name": "Tidal", "aliases": [],
@@ -65,15 +77,19 @@
       "launch": { "android_tv": "deezer.android.tv", "fire_tv": "deezer.android.tv", "tizen": "deezer" } },
 
     { "slug": "iheartradio", "name": "iHeartRadio", "aliases": ["iheart"],
+      "icon": "https://image-api-prod.smartcasttv.com/api/brandimage/500000032/app-row-square?from=csapp",
       "launch": { "roku": "20197", "android_tv": "com.clearchannel.iheartradio.tv", "fire_tv": "com.clearchannel.iheartradio.tv", "vizio": "{\"NAME_SPACE\":2,\"APP_ID\":\"6\",\"MESSAGE\":null}" } },
 
     { "slug": "tunein", "name": "TuneIn", "aliases": ["tunein radio"],
+      "icon": "https://image-api-prod.smartcasttv.com/api/brandimage/900000371/app-row-square?from=csapp",
       "launch": { "roku": "1453", "android_tv": "tunein.player", "fire_tv": "tunein.player", "tizen": "TuneIn Radio", "vizio": "{\"NAME_SPACE\":2,\"APP_ID\":\"325\",\"MESSAGE\":null}" } },
 
     { "slug": "siriusxm", "name": "SiriusXM", "aliases": ["sirius"],
+      "icon": "https://image-api-prod.smartcasttv.com/api/brandimage/900000252/app-row-square?from=csapp",
       "launch": { "roku": "38345", "android_tv": "tv.accedo.siriusxm.app", "webos": "sir.12465.3738", "vizio": "{\"NAME_SPACE\":2,\"APP_ID\":\"212\",\"MESSAGE\":null}" } },
 
     { "slug": "plex", "name": "Plex", "aliases": ["plex - free movies ＆ tv"],
+      "icon": "https://image-api-prod.smartcasttv.com/api/brandimage/900000013/app-row-square?from=csapp",
       "launch": { "roku": "13535", "android_tv": "com.plexapp.android", "fire_tv": "com.plexapp.android", "webos": "cdp-30", "tizen": "Plex", "vizio": "{\"NAME_SPACE\":2,\"APP_ID\":\"9\",\"MESSAGE\":null}" } },
 
     { "slug": "jellyfin", "name": "Jellyfin", "aliases": [],
@@ -86,27 +102,34 @@
       "launch": { "roku": "44191", "android_tv": "tv.emby.embyatv", "fire_tv": "tv.emby.embyatv", "webos": "com.emby.app", "tizen": "Emby" } },
 
     { "slug": "sling", "name": "Sling TV", "aliases": [],
+      "icon": "https://image-api-prod.smartcasttv.com/api/brandimage/900000181/app-row-square?from=csapp",
       "launch": { "roku": "46041", "android_tv": "com.sling", "fire_tv": "com.sling", "webos": "com.movenetworks.app.sling-tv-sling-production", "tizen": "Sling TV", "vizio": "{\"NAME_SPACE\":2,\"APP_ID\":\"150\",\"MESSAGE\":null}" } },
 
     { "slug": "fubo", "name": "Fubo", "aliases": ["fubotv"],
+      "icon": "https://image-api-prod.smartcasttv.com/api/brandimage/900000150/app-row-square?from=csapp",
       "launch": { "roku": "43465", "android_tv": "com.fubo.firetv.screen", "fire_tv": "com.fubo.firetv.screen", "webos": "com.fubotv.app", "tizen": "Fubo", "vizio": "{\"NAME_SPACE\":2,\"APP_ID\":\"138\",\"MESSAGE\":null}" } },
 
     { "slug": "philo", "name": "Philo", "aliases": [],
+      "icon": "https://image-api-prod.smartcasttv.com/api/brandimage/900000399/app-row-square?from=csapp",
       "launch": { "roku": "196460", "android_tv": "com.philo.philo.google", "fire_tv": "com.philo.philo", "vizio": "{\"NAME_SPACE\":2,\"APP_ID\":\"347\",\"MESSAGE\":null}" } },
 
     { "slug": "directv-stream", "name": "DIRECTV STREAM", "aliases": ["directv", "directv now", "at&t tv"],
+      "icon": "https://image-api-prod.smartcasttv.com/api/brandimage/900000736/app-row-square?from=csapp",
       "launch": { "roku": "140474", "android_tv": "com.att.tv", "fire_tv": "com.att.tv", "tizen": "DIRECTV STREAM", "vizio": "{\"NAME_SPACE\":2,\"APP_ID\":\"568\",\"MESSAGE\":null}" } },
 
     { "slug": "xfinity-stream", "name": "Xfinity Stream", "aliases": ["xfinity"],
       "launch": { "roku": "123132", "webos": "com.comcast.app", "tizen": "Xfinity Stream" } },
 
     { "slug": "spectrum-tv", "name": "Spectrum TV", "aliases": ["spectrum"],
+      "icon": "https://image-api-prod.smartcasttv.com/api/brandimage/900000593/app-row-square?from=csapp",
       "launch": { "roku": "23048", "tizen": "Spectrum TV", "vizio": "{\"NAME_SPACE\":2,\"APP_ID\":\"471\",\"MESSAGE\":null}" } },
 
     { "slug": "tubi", "name": "Tubi", "aliases": ["tubi tv", "tubi - free movies ＆ tv"],
+      "icon": "https://image-api-prod.smartcasttv.com/api/brandimage/900000036/app-row-square?from=csapp",
       "launch": { "roku": "41468", "android_tv": "com.tubitv", "fire_tv": "com.tubitv.ott", "webos": "com.tubitv.ott.tubi", "vizio": "{\"NAME_SPACE\":2,\"APP_ID\":\"61\",\"MESSAGE\":null}" } },
 
     { "slug": "pluto-tv", "name": "Pluto TV", "aliases": ["pluto"],
+      "icon": "https://image-api-prod.smartcasttv.com/api/brandimage/900000128/app-row-square?from=csapp",
       "launch": { "roku": "74519", "apple_tv": "tv.pluto.ios", "android_tv": "tv.pluto.android", "fire_tv": "tv.pluto.android", "webos": "com.plutotv.app", "tizen": "Pluto TV", "vizio": "{\"NAME_SPACE\":0,\"APP_ID\":\"E6F74C01\",\"MESSAGE\":\"{\\\"CAST_NAMESPACE\\\":\\\"urn:x-cast:tv.pluto\\\",\\\"CAST_MESSAGE\\\":{\\\"command\\\":\\\"initializePlayback\\\",\\\"channel\\\":\\\"\\\",\\\"episode\\\":\\\"\\\",\\\"time\\\":0}}\"}" } },
 
     { "slug": "roku-channel", "name": "The Roku Channel", "aliases": [],
@@ -119,6 +142,7 @@
       "launch": { "roku": "2016", "android_tv": "com.crackle.androidtv", "fire_tv": "com.gotv.crackle.handset", "webos": "crackle", "tizen": "Crackle" } },
 
     { "slug": "crunchyroll", "name": "Crunchyroll", "aliases": [],
+      "icon": "https://image-api-prod.smartcasttv.com/api/brandimage/900000694/app-row-square?from=csapp",
       "launch": { "roku": "2595", "android_tv": "com.crunchyroll.crunchyroid", "fire_tv": "com.crunchyroll.crunchyroid", "webos": "com.crunchyroll.webapp", "tizen": "Crunchyroll", "vizio": "{\"NAME_SPACE\":2,\"APP_ID\":\"481\",\"MESSAGE\":null}" } },
 
     { "slug": "twitch", "name": "Twitch", "aliases": [],
@@ -128,9 +152,11 @@
       "launch": { "roku": "1980", "android_tv": "com.vimeo.android.videoapp", "fire_tv": "com.vimeo.android.tv", "tizen": "Vimeo" } },
 
     { "slug": "espn", "name": "ESPN", "aliases": ["watchespn", "espn plus"],
+      "icon": "https://image-api-prod.smartcasttv.com/api/brandimage/900000340/app-row-square?from=csapp",
       "launch": { "roku": "34376", "android_tv": "com.espn.score_center", "fire_tv": "com.espn.gtv", "tizen": "ESPN", "vizio": "{\"NAME_SPACE\":2,\"APP_ID\":\"292\",\"MESSAGE\":null}" } },
 
     { "slug": "nfl", "name": "NFL", "aliases": ["nfl plus"],
+      "icon": "https://image-api-prod.smartcasttv.com/api/brandimage/900000367/app-row-square?from=csapp",
       "launch": { "roku": "44856", "android_tv": "com.gotv.nflgamecenter.us.lite", "fire_tv": "com.gotv.nflgamecenter.us.lite", "webos": "com.nfl.app", "vizio": "{\"NAME_SPACE\":2,\"APP_ID\":\"297\",\"MESSAGE\":null}" } },
 
     { "slug": "nba", "name": "NBA", "aliases": ["nba league pass"],
@@ -143,30 +169,37 @@
       "launch": { "roku": "2531", "android_tv": "com.nhl.gc1112.free", "fire_tv": "com.nhl.gc1112.free" } },
 
     { "slug": "dazn", "name": "DAZN", "aliases": [],
+      "icon": "https://image-api-prod.smartcasttv.com/api/brandimage/900000028/app-row-square?from=csapp",
       "launch": { "roku": "158987", "android_tv": "com.dazn", "fire_tv": "com.dazn", "webos": "dazn", "tizen": "DAZN", "vizio": "{\"NAME_SPACE\":2,\"APP_ID\":\"34\",\"MESSAGE\":null}" } },
 
     { "slug": "discovery-plus", "name": "Discovery+", "aliases": [],
+      "icon": "https://image-api-prod.smartcasttv.com/api/brandimage/900000631/app-row-square?from=csapp",
       "launch": { "roku": "593290", "android_tv": "com.discovery.discoveryplus.androidtv", "fire_tv": "com.discovery.discoveryplus.firetv", "webos": "com.discovery.dplus", "tizen": "discovery+", "vizio": "{\"NAME_SPACE\":2,\"APP_ID\":\"486\",\"MESSAGE\":null}" } },
 
     { "slug": "amc-plus", "name": "AMC+", "aliases": [],
+      "icon": "https://image-api-prod.smartcasttv.com/api/brandimage/900000237/app-row-square?from=csapp",
       "launch": { "roku": "636527", "android_tv": "com.amcplus.amcandroidtv", "fire_tv": "com.amcplus.amcfiretv", "webos": "com.amcplus1.app", "vizio": "{\"NAME_SPACE\":2,\"APP_ID\":\"218\",\"MESSAGE\":null}" } },
 
     { "slug": "starz", "name": "Starz", "aliases": [],
+      "icon": "https://image-api-prod.smartcasttv.com/api/brandimage/900000211/app-row-square?from=csapp",
       "launch": { "roku": "65067", "android_tv": "com.bydeluxe.d3.android.program.starz", "fire_tv": "com.starz.starzplay.firetv", "webos": "com.starz.app.starz-lgtv", "tizen": "STARZ", "vizio": "{\"NAME_SPACE\":2,\"APP_ID\":\"151\",\"MESSAGE\":null}" } },
 
     { "slug": "showtime", "name": "Showtime", "aliases": [],
       "launch": { "roku": "8838", "android_tv": "com.showtime.standalone", "fire_tv": "com.showtime.standalone", "tizen": "SHOWTIME" } },
 
     { "slug": "britbox", "name": "BritBox", "aliases": [],
+      "icon": "https://image-api-prod.smartcasttv.com/api/brandimage/900000310/app-row-square?from=csapp",
       "launch": { "roku": "143088", "android_tv": "com.britbox.tv", "webos": "britbox", "tizen": "BritBox", "vizio": "{\"NAME_SPACE\":2,\"APP_ID\":\"262\",\"MESSAGE\":null}" } },
 
     { "slug": "mubi", "name": "MUBI", "aliases": [],
+      "icon": "https://image-api-prod.smartcasttv.com/api/brandimage/900000710/app-row-square?from=csapp",
       "launch": { "android_tv": "com.mubi", "fire_tv": "com.mubi", "webos": "com.mubi", "vizio": "{\"NAME_SPACE\":2,\"APP_ID\":\"566\",\"MESSAGE\":null}" } },
 
     { "slug": "criterion", "name": "The Criterion Channel", "aliases": ["criterion channel"],
       "launch": { "roku": "276871", "android_tv": "com.criterionchannel", "fire_tv": "com.criterionchannel" } },
 
     { "slug": "fandango-at-home", "name": "Fandango at Home", "aliases": ["vudu", "fandango at home - vudu"],
+      "icon": "https://image-api-prod.smartcasttv.com/api/brandimage/900000029/app-row-square?from=csapp",
       "launch": { "roku": "13842", "android_tv": "air.com.vudu.air.DownloaderTablet", "webos": "vudu", "tizen": "Fandango at Home - Vudu", "vizio": "{\"NAME_SPACE\":2,\"APP_ID\":\"31\",\"MESSAGE\":\"https://my.vudu.com/castReceiver/index.html?launch-source=app-icon\"}" } },
 
     { "slug": "google-tv", "name": "Google TV", "aliases": ["google play movies", "play movies & tv"],
